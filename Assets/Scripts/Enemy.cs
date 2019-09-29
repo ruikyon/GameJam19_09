@@ -17,8 +17,8 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         stop = true;
         timer = 5;
-        Scheduler.AddEvent(ChangeDirection, 5);
-        Scheduler.AddEvent(() => { stop = false; animator.SetBool("Running", true); }, 5);
+        Scheduler.AddEvent(ChangeDirection, 2);
+        Scheduler.AddEvent(() => { stop = false; animator.SetBool("Running", true); }, 2);
     }
 
     public void Init(int x, int y)
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 
     private void ChangeDirection()
     {
-        var dir = Stage.route[x * 6 + y];
+        var dir = Stage.route[x * 5 + y];
         bool[] can = { true, true, true, true };
         for(var i = 0; i < dir.Count; i++)
         {

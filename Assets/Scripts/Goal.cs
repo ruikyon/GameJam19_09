@@ -9,7 +9,8 @@ public class Goal : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Result.score = 100;
+            Result.score = (int)(Player.instance.HideTime * 100 - UI.GetTime()*10);
+            if (Result.score <= 0) Result.score = 100;
             SceneManager.LoadScene("End");
             Debug.Log("game clear");
         }

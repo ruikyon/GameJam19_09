@@ -25,14 +25,14 @@ public class Stage : MonoBehaviour
 
                 if (mapData[i][j] == '1' || mapData[i][j] == '2')
                 {
-                    var basePos = new Vector3(2 * i + 1, 1, 2 * j + 1);
+                    var basePos = new Vector3(2 * i + 1, 1.25f, 2 * j + 1);
 
                     if (mapData[i][j] == '2')
                     {
-                        var enemy = Instantiate(enemyPrefab, basePos - Vector3.up, new Quaternion());
+                        var enemy = Instantiate(enemyPrefab, basePos - Vector3.up*1.25f, new Quaternion());
                         enemy.GetComponent<Enemy>().Init(i/4, j/4);
                     }
-                    Instantiate(roadPrefab, basePos - Vector3.up, new Quaternion(), transform);
+                    Instantiate(roadPrefab, basePos - Vector3.up*1.25f, new Quaternion(), transform);
                     //壁生成
                     //(0, 0), (max, max)は例外的に左、右を開ける
                     if (i == 0 || mapData[i - 1][j] == '0')
